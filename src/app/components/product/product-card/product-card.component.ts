@@ -14,7 +14,7 @@ import { Product, ProductVariant } from '../../../models/product.model';
       <!-- Product Image -->
       <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-t-lg bg-gray-200">
         <img
-          [src]="product.thumbnail || product.images?.[0]?.url || '/assets/placeholder-product.jpg'"
+          [src]="product.thumbnail || product.images[0].url || '/assets/placeholder-product.jpg'"
           [alt]="product.title"
           class="h-48 w-full object-cover object-center group-hover:opacity-75 cursor-pointer"
           (click)="viewProduct()"
