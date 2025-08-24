@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MedusaService } from '../../services/medusa.service';
-import { Product } from '../../models';
+import { ProductGridComponent } from '../../components/product/product-grid/product-grid.component';
+import { CommonModule } from '@angular/common';
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-home',
+  imports: [ProductGridComponent, CommonModule],
   template: `
     <!-- Hero Section -->
     <section class="relative bg-gray-900">
@@ -106,8 +109,8 @@ export class HomeComponent implements OnInit {
   isLoading = true;
 
   constructor(
-    private medusaService: MedusaService,
-    private router: Router
+    private readonly medusaService: MedusaService,
+    private readonly router: Router
   ) {}
 
   ngOnInit() {
