@@ -2,10 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MedusaService } from '../../services/medusa.service';
 import { CartService } from '../../services/cart.service';
-import { Product, ProductVariant, ProductOptionValue } from '../../models';
+import { CommonModule } from '@angular/common';
+import { Product, ProductVariant } from '../../models/product.model';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-product-detail',
+  imports: [CommonModule, FormsModule],
   template: `
     <div *ngIf="product" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div class="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
@@ -190,9 +193,9 @@ export class ProductDetailComponent implements OnInit {
   error = false;
 
   constructor(
-    private route: ActivatedRoute,
-    private medusaService: MedusaService,
-    private cartService: CartService
+    private readonly route: ActivatedRoute,
+    private readonly medusaService: MedusaService,
+    private readonly cartService: CartService
   ) {}
 
   ngOnInit() {
